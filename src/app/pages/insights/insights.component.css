@@ -1,0 +1,15 @@
+.insightHeader{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    height:130px;
+    padding:16px;
+}
+
+.dateRow{
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    justify-content: space-between;
+    align-items: center;
+}

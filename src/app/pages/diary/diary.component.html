@@ -1,0 +1,115 @@
+
+  
+  <ion-content class="ion-padding">
+
+
+      <div class="dateContainer">
+        <div>
+            <ion-button (click)="previousDay()">
+                <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+              </ion-button>
+        </div>
+
+        <div>
+            {{selectedDate}}
+        </div>
+
+        <div> 
+            <ion-button (click)="nextDay()">
+            <ion-icon slot="icon-only" name="arrow-forward"></ion-icon>
+          </ion-button>
+        </div>
+      </div>
+<ng-container *ngIf="diaryEntry | async as entry; else noEntry">
+
+    <h2>The day's stats</h2>
+
+    <ion-list class="statsPanel" lines='none'>
+        <ion-item>
+            <ion-avatar slot="start">
+                <img src="../../../assets/images/icons/1spoon.svg" style="filter: invert(1);">
+                </ion-avatar>
+                <ion-label>Spoons for the day</ion-label>
+                <ion-label class="statsNumber" slot="end">
+                    {{entry.spoonsAvailable}}
+                </ion-label>
+        </ion-item>
+
+        <ion-item>
+            <ion-avatar slot="start">
+                <img src="../../../assets/images/icons/1spoon.svg" style="filter: invert(1);">
+                </ion-avatar>
+                <ion-label>Spoons used</ion-label>
+                <ion-label class="statsNumber" slot="end">
+                    {{entry.spoonsUsed}}
+                </ion-label>
+        </ion-item>
+
+        <ion-item>
+            <ion-avatar slot="start">
+                <img src="../../../assets/images/icons/1spoon.svg" style="filter: invert(1);">
+                </ion-avatar>
+                <ion-label>Spoons borrowed</ion-label>
+                <ion-label class="statsNumber" slot="end">
+                    {{entry.spoonsBorrowed}}
+                </ion-label>
+        </ion-item>
+
+        <ion-item>
+            <ion-avatar slot="start">
+                <img src="../../../assets/images/icons/1spoon.svg" style="filter: invert(1);">
+                </ion-avatar>
+                <ion-label>Total spoons washed</ion-label>
+                <ion-label class="statsNumber" slot="end">
+                    0
+                </ion-label>
+        </ion-item>
+
+        <ion-item>
+            <ion-avatar slot="start">
+                <img src="../../../assets/images/icons/1spoon.svg" style="filter: invert(1);">
+                </ion-avatar>
+                <ion-label>Average mood rating</ion-label>
+                <ion-label class="statsNumber" slot="end">
+                    3
+                </ion-label>
+        </ion-item>
+
+        <ion-item>
+            <ion-avatar slot="start">
+                <img src="../../../assets/images/icons/1spoon.svg" style="filter: invert(1);">
+                </ion-avatar>
+                <ion-label>Average pain rating</ion-label>
+                <ion-label class="statsNumber" slot="end">
+                    3
+                </ion-label>
+        </ion-item>
+    
+       
+    
+        
+    </ion-list>
+
+    <h2>Journal</h2>
+
+    <ion-card>
+        <ion-card-content>
+            No journal entry found
+        </ion-card-content>
+    </ion-card>
+
+    
+
+</ng-container>
+<ng-template #noEntry>
+    <ng-container>
+        <div class="noEntryContainer">
+            <div class="icon">
+                <img src="../../../assets/images/icons/mood2.svg">
+            </div>
+            <div class="message">No entry found for this date</div>
+        </div>
+    </ng-container>
+</ng-template>
+  </ion-content>
+  

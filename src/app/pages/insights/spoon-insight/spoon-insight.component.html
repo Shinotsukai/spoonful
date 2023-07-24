@@ -1,0 +1,27 @@
+<ng-container *ngIf="chartData">
+    <app-charts [type]="'bar'" [data]="chartData" [config]="chartConfig"></app-charts>
+
+    <ion-list class="statsPanel" lines='none'>
+        <ion-item>
+            <ion-avatar slot="start">
+                <img src="../../../assets/images/icons/1spoon.svg" style="filter: invert(1);">
+                </ion-avatar>
+                <ion-label>Total spoons used</ion-label>
+                <ion-label class="statsNumber" slot="end">
+                    {{spoonUsage.totalSpoonsUsed}}
+                </ion-label>
+        </ion-item>
+
+        <ion-item>
+            <ion-avatar slot="start">
+                <img src="../../../assets/images/icons/1spoon.svg" style="filter: invert(1);">
+                </ion-avatar>
+                <ion-label>Spoons borrowed</ion-label>
+                <ion-label class="statsNumber" slot="end">
+                    {{spoonUsage.overexertionDays}}
+                </ion-label>
+        </ion-item>
+
+        </ion-list>
+   
+</ng-container>

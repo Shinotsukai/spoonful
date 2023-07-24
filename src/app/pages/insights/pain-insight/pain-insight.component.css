@@ -1,0 +1,9 @@
+.noDataContainer{
+    display:flex;
+    flex-direction: column;
+    gap:16px;
+    justify-content: space-around;
+    align-items: center;
+    padding:32px;
+    height: 60vh;
+}

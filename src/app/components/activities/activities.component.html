@@ -1,0 +1,36 @@
+<ion-item lines="none" [class.itemComplete]="item.isCompleted">
+
+    <ion-avatar slot="start">
+      <ng-container [ngSwitch]="item.activity.spoonCost">
+        <ng-container *ngSwitchCase="1">
+          <img src="../../../assets/images/icons/1spoon.svg" />
+        </ng-container>
+        <ng-container *ngSwitchCase="2">
+          <img src="../../../assets/images/icons/2spoon.svg" />
+        </ng-container>
+        <ng-container *ngSwitchCase="3">
+          <img src="../../../assets/images/icons/3spoon.svg" />
+        </ng-container>
+        <ng-container *ngSwitchCase="4">
+          <img src="../../../assets/images/icons/4spoon.svg" />
+        </ng-container>
+
+        <ng-container *ngSwitchDefault>
+          <img src="../../../assets/images/icons/1spoon.svg" />
+        </ng-container>
+      </ng-container>
+    </ion-avatar>
+
+  <ion-checkbox
+  aria-label=`item.activity.name`
+    [(ngModel)]="item.isCompleted"
+    (ionChange)="updateActivity(item)"
+  >
+
+    <h4>{{ item.activity.name }}</h4>
+</ion-checkbox>
+
+</ion-item>
+    
+    
+    

@@ -1,0 +1,107 @@
+<!-- <ion-header>
+    <ion-toolbar color="secondary">
+      <ion-buttons slot="start">
+        <ion-button (click)="close()" *ngIf="level == 0">
+          <ion-icon slot="icon-only" name="close"></ion-icon>
+        </ion-button>
+        <ion-back-button *ngIf="level > 0"></ion-back-button>
+      </ion-buttons>
+      <ion-title>My Modal Level: {{ level }}</ion-title>
+    </ion-toolbar>
+  </ion-header> -->
+  
+  <ion-content>
+    <div>
+    <div class="header-menu-bg"></div>
+    <div class="header-menu">
+        <ion-toolbar>
+            <ion-buttons slot="start">
+              <ion-button (click)="close()" *ngIf="level == 0">
+                <ion-icon slot="icon-only" name="close"></ion-icon>
+              </ion-button>
+              <ion-back-button *ngIf="level > 0"></ion-back-button>
+            </ion-buttons>
+          </ion-toolbar>
+    </div>
+
+</div>
+
+<ion-list class="page-links" lines='none'>
+    <ion-item button detail="true" (click)="goToActivity()">
+        <ion-avatar slot="start">
+            <img src="../../../../assets/images/icons/1spoon.svg" style="filter: invert(1);">
+            </ion-avatar>
+            Add activity
+    </ion-item>
+
+    <ion-item button detail="true">
+        <ion-avatar slot="start">
+            <img src="../../../../assets/images/icons/wash.svg" style="filter: invert(1);">
+            </ion-avatar>
+            Wash spoon
+    </ion-item>
+
+    <ion-item button detail="true" (click)="goToMood()">
+        <ion-avatar slot="start">
+            <img src="../../../../assets/images/icons/mood.svg">
+            </ion-avatar>
+            Add mood rating
+    </ion-item>
+
+    <ion-item button detail="true">
+        <ion-avatar slot="start">
+            <img src="../../../../assets/images/icons/pain.svg">
+            </ion-avatar>
+            Add pain rating
+    </ion-item>
+
+    
+</ion-list>
+    <!-- <ion-grid [fixed]="true">
+        <ion-row>
+          <ion-col>
+            <div class="activityContainer" (click)="goForward()">
+                <div class="icon">
+                    <img src="../../../../assets/images/icons/1spoon.svg">
+                </div>
+                <div class="title">Add activity</div>
+            </div>
+          </ion-col>
+          <ion-col>
+            <div class="activityContainer" (click)="goForward()">
+                <div class="icon">
+                    <img src="../../../../assets/images/icons/wash.svg">
+                </div>
+                <div class="title">Wash spoon</div>
+            </div>
+          </ion-col>
+
+        </ion-row>
+        <ion-row>
+            <ion-col>            <div class="activityContainer" (click)="goForward()">
+                <div class="icon">
+                    <img src="../../../../assets/images/icons/mood.svg">
+                </div>
+                <div class="title">Add mood</div>
+            </div></ion-col>
+            <ion-col>            <div class="activityContainer" (click)="goForward()">
+                <div class="icon">
+                    <img src="../../../../assets/images/icons/pain.svg">
+                </div>
+                <div class="title">Add pain</div>
+            </div></ion-col>
+  
+          </ion-row>
+      </ion-grid> -->
+
+  
+
+  
+
+  
+    <!-- Go back to first modal from code -->
+    <!-- <ion-button expand="full" color="dark" (click)="goRoot()" *ngIf="level > 0">
+      <ion-icon name="arrow-back" slot="end"></ion-icon>
+      Go root from Code
+    </ion-button> -->
+  </ion-content>

@@ -1,0 +1,73 @@
+<div class="insightHeader">
+
+    <div class="dateRow">
+        <div class="startDate">
+            <ion-label>Date start</ion-label>
+            <ion-datetime-button datetime="datetime1"></ion-datetime-button>
+
+<ion-modal [keepContentsMounted]="true">
+<ng-template>
+<ion-datetime id="datetime1" presentation="date" [(ngModel)]="startDate" [showDefaultButtons]="true" (ionChange)="onDateChanged()"></ion-datetime>
+</ng-template>
+</ion-modal>
+        </div>
+
+        <div class="endDate">
+            <ion-label>Date end</ion-label>
+            <ion-datetime-button datetime="datetime2"></ion-datetime-button>
+
+            <ion-modal [keepContentsMounted]="true">
+              <ng-template>
+                <ion-datetime id="datetime2" presentation="date" [(ngModel)]="endDate" [min]="startDate" [showDefaultButtons]="true" (ionChange)="onDateChanged()"></ion-datetime>
+              </ng-template>
+            </ion-modal>
+        </div>
+
+    </div>
+
+    <div class="segmentRow">
+
+    <ion-segment  [(ngModel)]="segment">
+        <ion-segment-button value="spoons">
+          <ion-label>Spoons</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="activities">
+          <ion-label>Activities</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="mood">
+          <ion-label>Mood</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="pain">
+            <ion-label>Pain</ion-label>
+          </ion-segment-button>
+      </ion-segment>
+    </div>
+
+
+</div>
+
+<ion-content class="ion-padding">
+
+      <ng-container *ngIf="dataLoading$ | async as loading">
+        <ng-container [ngSwitch]="segment" *ngIf="insightData$ | async as insight">
+            <ng-container *ngSwitchCase="'spoons'">
+                <app-spoon-insight [chartData]="insight.spoonChartData" [spoonUsage]="insight.spoonUsageData"></app-spoon-insight>
+            </ng-container>
+      
+            <ng-container *ngSwitchCase="'activities'">
+                <app-activity-insight [data]="insight.activitySummaryData"></app-activity-insight>
+            </ng-container>
+      
+            <ng-container *ngSwitchCase="'mood'">
+                <app-mood-insight [data]="insight.moodData" [spoonData]="insight.spoonChartData"></app-mood-insight>
+            </ng-container>
+    
+            <ng-container *ngSwitchCase="'pain'">
+                <app-pain-insight [data]="insight.painData"></app-pain-insight>
+            </ng-container>
+          </ng-container>
+      </ng-container>
+
+
+
+</ion-content>

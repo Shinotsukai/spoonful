@@ -1,0 +1,60 @@
+<ion-content [scrollY]="false">
+    <swiper-container pagination="true" >
+        <swiper-slide>
+            <div class="slideContainer">
+                <div class="slideTitle">Spoons available</div>
+                <div class="slideContent"><img src="../../../assets/onboarding/onboard1.svg"></div>
+                <div class="slideFooter"></div>
+            </div>
+        </swiper-slide>
+        <swiper-slide>
+            <div class="slideContainer">
+                <div class="slideTitle">Spoons used</div>
+                <div class="slideContent"><img src="../../../assets/onboarding/onboard1.svg"></div>
+                <div class="slideFooter"></div>
+            </div>
+        </swiper-slide>
+        <swiper-slide>
+            <div class="slideContainer">
+                <div class="slideTitle">Spoons borrowed</div>
+                <div class="slideContent">
+                    <div class="activitiesContainer">
+                        <ng-container *ngFor="let item of groupedSpoons | keyvalue">
+                           
+                            <h3>{{ item.key }} spoon activities:</h3>
+                    
+                              <ng-container *ngFor="let activity of item.value">
+                    
+                                <div class="itemContainer">
+                    
+                                    <div class="itemCheck">
+                                        <ion-checkbox [(ngModel)]="activity.isCompleted" (ionChange)="updateUserActivity(activity)" ></ion-checkbox>
+                                    </div>
+                    
+                                    <div class="itemLabel">{{ activity.name }}</div>
+                    
+                    
+                                </div>
+                    
+                    
+                              </ng-container>
+                            </ng-container>
+                          </div>
+                </div>
+                <div class="slideFooter"></div>
+            </div>
+        </swiper-slide>
+
+        <swiper-slide>
+            <div class="slideContainer">
+                <div class="slideTitle">Spoons used</div>
+                <div class="slideContent">{{getTotalSpoons()}}
+                    <ion-button expand="block" [disabled]="userSelected.length < 1" (click)="toDashboard()">Lets go!</ion-button>
+                </div>
+                <div class="slideFooter">
+
+                </div>
+            </div>
+        </swiper-slide>
+      </swiper-container>
+</ion-content>

@@ -1,0 +1,17 @@
+.activitiesContainer{
+    display: flex;
+    flex-direction:column;
+    padding:16px;
+    gap:8px;
+
+    .itemContainer{
+        background-color: var(--ion-card-background);
+        border-radius: 16px;
+        width: 100%;
+        display:flex;
+        flex-direction:row;
+        justify-content:space-between;
+        padding:16px;
+        align-items: center;
+    }
+}

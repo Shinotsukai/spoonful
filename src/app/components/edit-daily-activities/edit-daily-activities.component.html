@@ -1,0 +1,32 @@
+<ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-button color="medium" (click)="cancel()">Cancel</ion-button>
+      </ion-buttons>
+      <ion-title>Editing daily activities</ion-title>
+      <ion-buttons slot="end">
+        <ion-button (click)="confirm()" [strong]="true">Save</ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+
+  <div class="topRow">
+    <div>
+        <ion-card>
+            <ion-card-subtitle>Total activities</ion-card-subtitle>
+            <ion-card-content>{{userSelected.length}}</ion-card-content>
+        </ion-card>
+    </div>
+    <div>
+        <ion-card>
+            <ion-card-subtitle>Total spoons</ion-card-subtitle>
+            <ion-card-content>{{getTotalSpoons()}}</ion-card-content>
+        </ion-card>
+    </div>
+  </div>
+
+  <ion-content class="ion-padding">
+<ng-container *ngFor="let activity of activityData" >
+    <app-activity-edit [item]="activity" (onActivtyUpdate)="updateActivity($event,activity)" (onActivityCostUpdate)="updateSpoonCost($event,activity)" (onActivityChecked)="isSelected($event,activity)"></app-activity-edit>
+</ng-container>
+  </ion-content>

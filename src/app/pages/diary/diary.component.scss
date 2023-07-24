@@ -1,0 +1,40 @@
+
+
+.dateContainer{
+    display:flex;
+    flex-direction: row;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.noEntryContainer{
+    display:flex;
+    flex-direction: column;
+    gap:16px;
+    justify-content: space-around;
+    align-items: center;
+    padding:32px;
+    height: 60vh;
+}
+
+.headerContainer{
+
+
+}
+
+.statsPanel{
+    margin:0px;
+    ion-item{
+        --background: rgba(117,144,214,.2);
+        padding: 0;
+        margin: 14px 0;
+        --border-radius: 14px;
+
+        font-weight: 600;
+        .statsNumber{
+            font-size: 2rem;
+    font-weight: bold;
+    text-align: right;
+        }
+    }
+}

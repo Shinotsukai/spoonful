@@ -1,0 +1,19 @@
+<ng-container *ngIf="data">
+    <app-charts [type]="'doughnut'" [data]="data.spoonCostDistribution"></app-charts>
+
+    <ion-card>
+        <ion-card-header>
+          <ion-card-title>Top 5 activities</ion-card-title>
+          <ion-card-subtitle>Most completed activities</ion-card-subtitle>
+        </ion-card-header>
+      
+        <ion-card-content>
+            <ion-list>
+                <ion-item *ngFor="let activity of data.mostFrequentActivities; let i = index">
+                  <ion-label>{{activity.name}}</ion-label>
+                </ion-item>
+               
+              </ion-list>
+        </ion-card-content>
+      </ion-card>
+</ng-container>

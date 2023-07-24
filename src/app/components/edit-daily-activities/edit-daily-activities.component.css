@@ -1,0 +1,7 @@
+.topRow{
+    display:flex;
+    flex-direction: row;
+    gap:16px;
+    padding:16px;
+    justify-content:space-between;
+}

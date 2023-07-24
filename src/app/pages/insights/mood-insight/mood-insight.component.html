@@ -1,0 +1,62 @@
+<ng-container *ngIf="hasData; else noData">
+    <h2>Your mood</h2>
+    <app-charts [type]="'line'" [data]="data.chartData"></app-charts>
+
+    <ion-list class="statsPanel" lines='none'>
+        <ion-item>
+            <ion-avatar slot="start">
+                <img [src]="'../../../../assets/images/icons/mood'+ data.overallAvg +'.svg'">
+                </ion-avatar>
+                <ion-label>Average mood</ion-label>
+                <ion-label class="statsNumber" slot="end">
+                    {{data.overallAvg}}
+                </ion-label>
+        </ion-item>
+
+        <ion-item>
+            <ion-avatar slot="start">
+                <img [src]="'../../../../assets/images/icons/mood'+ data.avgMood.Morning +'.svg'">
+                </ion-avatar>
+                <ion-label>Average morning mood </ion-label>
+                <ion-label class="statsNumber" slot="end">
+                    {{data.avgMood.Morning}}
+                </ion-label>
+        </ion-item>
+
+        <ion-item>
+            <ion-avatar slot="start">
+                <img [src]="'../../../../assets/images/icons/mood'+ data.avgMood.Afternoon +'.svg'">
+                </ion-avatar>
+                <ion-label>Average afternoon mood</ion-label>
+                <ion-label class="statsNumber" slot="end">
+                    {{data.avgMood.Afternoon}}
+                </ion-label>
+        </ion-item>
+
+        <ion-item>
+            <ion-avatar slot="start">
+                <img [src]="'../../../../assets/images/icons/mood'+ data.avgMood.Evening +'.svg'">
+                </ion-avatar>
+                <ion-label>Average evening mood</ion-label>
+                <ion-label class="statsNumber" slot="end">
+                    {{data.avgMood.Evening}}
+                </ion-label>
+        </ion-item>
+
+        </ion-list>
+
+
+    <h2>Mood vs Spoons used</h2>
+    <app-charts [type]="'bar'" [data]="moodCompareData" [config]="moodCompareConfig"></app-charts>
+</ng-container>
+
+<ng-template #noData>
+    <ng-container>
+        <div class="noDataContainer">
+            <div class="icon">
+                <img src="../../../../assets/images/icons/mood2.svg">
+            </div>
+            <div class="message">No data available for this period</div>
+        </div>
+    </ng-container>
+</ng-template>

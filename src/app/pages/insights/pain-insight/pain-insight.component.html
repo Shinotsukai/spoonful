@@ -1,0 +1,17 @@
+<ng-container *ngIf="hasData; else noData">
+    <h2>Your pain</h2>
+    <app-charts [type]="'line'" [data]="data.chartData"></app-charts>
+    <h2>Pain vs Spoons used</h2>
+    <app-charts [type]="'bar'" [data]="painCompareData" [config]="painCompareConfig"></app-charts>
+</ng-container>
+
+<ng-template #noData>
+    <ng-container>
+        <div class="noDataContainer">
+            <div class="icon">
+                <img src="../../../../assets/images/icons/mood2.svg">
+            </div>
+            <div class="message">No data available for this period</div>
+        </div>
+    </ng-container>
+</ng-template>

@@ -1,0 +1,22 @@
+<ion-header>
+    <ion-toolbar color="secondary">
+      <ion-buttons slot="start">
+        <ion-back-button></ion-back-button>
+      </ion-buttons>
+      <ion-title>Add activity</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content>
+   <ng-container *ngIf="activityData">
+    <div class="activitiesContainer">
+        <ng-container *ngFor="let item of activityData">
+            <app-activities [item]="item" (onActivtyUpdate)="updateUserActivity($event)"></app-activities>
+            </ng-container>
+            </div>
+   
+   </ng-container>
+  </ion-content>
+  <ion-footer>
+    <ion-button expand="full" (click)="onSaveSelected()" [disabled]="userSelected.length < 1">Save activities</ion-button>
+  </ion-footer>

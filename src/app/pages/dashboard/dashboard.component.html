@@ -1,0 +1,82 @@
+<ion-content *ngIf="todaysEntry">
+
+<div class="headerContainer">
+    <strong>Have a great day!</strong>
+    <swiper-container slidesPerView="auto" [loop]="false" [spaceBetween]="20" pagination="true">
+        <swiper-slide>
+            <div class="slideContainer">
+
+                <div class="slideRow">
+                    <div class="slideIcon">
+                        <img src="../../../assets/images/icons/1spoon.svg">
+                    </div>
+                <div class="slideNumber">{{todaysEntry.spoonsAvailable}}</div>
+                </div>
+                <div class="slideTitle">Spoons today</div>
+            </div>
+        </swiper-slide>
+        <swiper-slide>
+            <div class="slideContainer">
+
+                <div class="slideRow">
+                    <div class="slideIcon">
+                        <img src="../../../assets/images/icons/1spoon.svg">
+                    </div>
+                <div class="slideNumber">{{todaysEntry.spoonsAvailable - todaysEntry.spoonsUsed}}</div>
+                </div>
+                <div class="slideTitle">Spoons remaining</div>
+            </div>
+        </swiper-slide>
+        <swiper-slide>
+            <div class="slideContainer">
+
+                <div class="slideRow">
+                    <div class="slideIcon">
+                        <img src="../../../assets/images/icons/sink.svg">
+                    </div>
+                    <div class="slideNumber">{{todaysEntry.spoonsUsed + todaysEntry.spoonsBorrowed}}</div>
+                </div>
+                <div class="slideTitle">Spoons used</div>
+            </div>
+        </swiper-slide>
+        <swiper-slide>
+            <div class="slideContainer">
+                <div class="slideRow">
+                    <div class="slideIcon">
+                        <img src="../../../assets/images/icons/sink.svg">
+                    </div>
+                <div class="slideNumber">{{todaysEntry.spoonsBorrowed}}</div>
+                </div>
+                <div class="slideTitle">Spoons borrowed</div>
+            </div>
+        </swiper-slide>
+      </swiper-container>
+</div>
+
+
+<div class="activitiesContainer">
+    <h2>Todays activities</h2>
+    <ng-container *ngFor="let item of todaysEntry.activities">
+        <app-activities *ngIf="!item.isCompleted" [item]="item" (onActivtyUpdate)="updateActivity($event)"></app-activities>
+        </ng-container>
+        </div>
+
+        <div class="activitiesContainer">
+            <h2>Dirty spoons</h2>
+            <ng-container *ngFor="let item of todaysEntry.activities">
+                <app-activities *ngIf="item.isCompleted" [item]="item" (onActivtyUpdate)="updateActivity($event)"></app-activities>
+                </ng-container>
+                </div>
+  
+
+
+
+
+      <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+        <ion-fab-button  color="tertiary" (click)="presentModal()">
+          <ion-icon name="add"></ion-icon>
+        </ion-fab-button>
+      </ion-fab>   
+</ion-content>
+
+
